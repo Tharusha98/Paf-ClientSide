@@ -46,15 +46,19 @@ public class Project {
 			preparedStmt.setString(5, url);
 			preparedStmt.setInt(6, researcher_id);
 			
-// execute the statement
-			preparedStmt.execute();
-			con.close();
-			output = "Inserted successfully";
-		} catch (Exception e) {
-			output = "Inserted Unsuccessfully.";
-			System.err.println(e.getMessage());
-		}
-		return output;
+			// execute the statement
+			 preparedStmt.execute();
+			 con.close();
+			 String newItems = readProjects();
+			 output = "{\"status\":\"success\", \"data\": \"" +
+			 newItems + "\"}";
+			 }
+			 catch (Exception e)
+			 {
+			 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			 System.err.println(e.getMessage());
+			 }
+			 return output; 
 	}
 
 	// Read the projects when researcher add to the system
@@ -124,14 +128,18 @@ public class Project {
 			preparedStmt.setInt(5, Integer.parseInt(researcherid));
 			preparedStmt.setInt(6, Integer.parseInt(ID));
 			// execute the statement
-			preparedStmt.execute();
-			con.close();
-			output = "Updated successfully";
-		} catch (Exception e) {
-			output = "Error while updating the item.";
-			System.err.println(e.getMessage());
-		}
-		return output;
+			 preparedStmt.execute();
+			 con.close();
+			 String newItems = readProjects();
+			 output = "{\"status\":\"success\", \"data\": \"" +
+			 newItems + "\"}";
+			 }
+			 catch (Exception e)
+			 {
+			 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			 System.err.println(e.getMessage());
+			 }
+			 return output; 
 	}
 
 	//Delete  project when they want
@@ -148,13 +156,17 @@ public class Project {
 			// binding values
 			preparedStmt.setInt(1, Integer.parseInt(projectid));
 			// execute the statement
-			preparedStmt.execute();
-			con.close();
-			output = "Deleted successfully";
-		} catch (Exception e) {
-			output = "Error while deleting the item.";
-			System.err.println(e.getMessage());
-		}
-		return output;
+			 preparedStmt.execute();
+			 con.close();
+			 String newItems = readProjects();
+			 output = "{\"status\":\"success\", \"data\": \"" +
+			 newItems + "\"}";
+			 }
+			 catch (Exception e)
+			 {
+			 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			 System.err.println(e.getMessage());
+			 }
+			 return output; 
 	}
 }
