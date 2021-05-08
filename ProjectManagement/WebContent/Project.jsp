@@ -14,9 +14,6 @@ pageEncoding="ISO-8859-1"%>
 <div class="container"><div class="row"><div class="col-6">
 <h1>Project Management V10.1</h1>
 <form id="prjectform" name="projectfoem">
- Project_ID:
- <input id="projectid" name="projectid" type="text"
- class="form-control form-control-sm">
  <br>Project Name:
  <input id="projectname" name="projectname" type="text"
  class="form-control form-control-sm">
