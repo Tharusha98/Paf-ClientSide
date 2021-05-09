@@ -13,7 +13,7 @@ pageEncoding="ISO-8859-1"%>
 <body>
 <div class="container"><div class="row"><div class="col-6">
 <h1>Project Management V10.1</h1>
-<form id="prjectform" name="projectfoem">
+<form id="prjectform" name="projectform">
  <br>Project Name:
  <input id="projectname" name="projectname" type="text"
  class="form-control form-control-sm">
@@ -27,7 +27,7 @@ pageEncoding="ISO-8859-1"%>
  <input id="url" name="url" type="text"
  class="form-control form-control-sm">
  <br> Researcher_ID:
- <input id="researcheridl" name="resercherid" type="text"
+ <input id="researcherid" name="researcherid" type="text"
  class="form-control form-control-sm">
  <br>
  <input id="btnSave" name="btnSave" type="button" value="Save"
