@@ -4,17 +4,7 @@
 var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
 
 
-$.ajax(
-{
- url : "ItemsAPI",
- type : type,
- data : $("#formItem").serialize(),
- dataType : "text",
- complete : function(response, status)
- {
- onItemSaveComplete(response.responseText, status);
- }
-});
+
 
 $(document).on("click", "#btnSave", function(event)
 		{
@@ -73,4 +63,30 @@ if (status == "success")
   $("#hidItemIDSave").val("");
   $("#formItem")[0].reset(); 
 
+
 }
+
+$(document).on("click", ".btnUpdate", function(event)
+		{
+		$("#hidItemIDSave").val($(this).data("itemid"));
+		 $("#projectname").val($(this).closest("tr").find('td:eq(0)').text());
+		 $("#description").val($(this).closest("tr").find('td:eq(1)').text());
+		 $("#field").val($(this).closest("tr").find('td:eq(2)').text());
+		 $("#url").val($(this).closest("tr").find('td:eq(3)').text());
+		 $("#researcherid").val($(this).closest("tr").find('td:eq(2)').text());
+		});
+
+$(document).on("click", ".btnRemove", function(event)
+		{
+		 $.ajax(
+		 {
+		 url : "Project",
+		 type : "DELETE",
+		 data : "Project_ID=" + $(this).data("Project_ID"),
+		 dataType : "text",
+		 complete : function(response, status)
+		 {
+		 onItemDeleteComplete(response.responseText, status);
+		 }
+		 });
+		});
