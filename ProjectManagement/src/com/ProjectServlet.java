@@ -56,7 +56,7 @@ public class ProjectServlet extends HttpServlet {
 	 */
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
-		 String output = projectobj.updateProject(paras.get("hidprojectIDSave").toString(),
+		 String output = projectobj.updateProject(paras.get("hidProjectIDSave").toString(),
 		 paras.get("projectname").toString(),
 		 paras.get("description").toString(),
 		paras.get("field").toString(),

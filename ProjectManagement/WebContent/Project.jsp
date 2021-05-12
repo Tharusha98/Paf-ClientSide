@@ -7,8 +7,8 @@ pageEncoding="ISO-8859-1"%>
 <meta charset="ISO-8859-1">
 <title>Project Management</title>
 <link rel="stylesheet" href="Views/bootstrap.min.css">
-<script src="Components/jquery-3.2.1.min.js"></script>
-<script src="Components/items.js"></script>
+<script src="Component/jquery-3.2.1.min.js"></script>
+<script src="Component/Project.js"></script>
 </head>
 <body>
 <div class="container"><div class="row"><div class="col-6">
@@ -32,8 +32,8 @@ pageEncoding="ISO-8859-1"%>
  <br>
  <input id="btnSave" name="btnSave" type="button" value="Save"
  class="btn btn-primary">
- <input type="hidden" id="hidItemIDSave"
- name="hidItemIDSave" value="">
+ <input type="hidden" id="hidProjectIDSave"
+ name="hidIProjectIDSave" value="">
 </form>
 <div id="alertSuccess" class="alert alert-success"></div>
 <div id="alertError" class="alert alert-danger"></div>

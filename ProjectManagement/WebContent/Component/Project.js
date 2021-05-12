@@ -1,6 +1,57 @@
 /**
  * 
+ * 
+ * 
  */
+
+
+$(document).ready(function() {
+	$("#alertSuccess").hide();
+	$("#alertError").hide();
+});
+
+// UPDATE==========================================
+$(document).on(
+		"click",
+		".btnUpdate",
+		function(event) {
+			$("#hidProjectIDSave").val(
+					$(this).closest("tr").find('#hidIProjectIDUpdate').val());
+			$("#projectname").val($(this).closest("tr").find('td:eq(0)').text());
+			$("#description").val($(this).closest("tr").find('td:eq(1)').text());
+			$("#field").val($(this).closest("tr").find('td:eq(2)').text());
+			$("#url").val($(this).closest("tr").find('td:eq(3)').text());
+			$("#researcherid").val($(this).closest("tr").find('td:eq(3)').text());
+		});
+
+// CLIENT-MODEL================================================================
+function validateItemForm() {
+	// CODE
+	if ($("#projectname").val().trim() == "") {
+		return "Insert Item Code.";
+	}
+	// NAME
+	if ($("#description").val().trim() == "") {
+		return "Insert Item Name.";
+	}
+	// PRICE-------------------------------
+	if ($("#field").val().trim() == "") {
+		return "Insert Item Price.";
+	}
+	if ($("#url").val().trim() == "") {
+		return "Insert Item Price.";
+	}
+	// is numerical value
+	var tmpPrice = $("#researcherid").val().trim();
+	if (!$.isNumeric(tmpPrice)) {
+		return "Insert a numerical value for Item Price.";
+	}
+	
+	return true;
+}
+
+
+
 var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
 
 
@@ -27,7 +78,7 @@ $(document).on("click", "#btnSave", function(event)
 		 {
 		 url : "Project",
 		 type : type,
-		 data : $("#formItem").serialize(),
+		 data : $("#projectform").serialize(),
 		 dataType : "text",
 		 complete : function(response, status)
 		 {
@@ -60,8 +111,8 @@ if (status == "success")
  $("#alertError").text("Unknown error while saving..");
  $("#alertError").show();
  }
-  $("#hidItemIDSave").val("");
-  $("#formItem")[0].reset(); 
+  $("#hidProjectIDSave").val("");
+  $("#projectform")[0].reset(); 
 
 
 }
@@ -92,7 +143,7 @@ $(document).on("click", ".btnRemove", function(event)
 		});
 function onItemDeleteComplete(response, status)
 {
-if (status == "success")
+	if (status == "success")
  {
  var resultSet = JSON.parse(response);
  if (resultSet.status.trim() == "success")

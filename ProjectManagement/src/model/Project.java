@@ -15,7 +15,7 @@ public class Project {
 	private Connection connect() {
 		Connection con = null;
 		try {
-			Class.forName("com.mysql.jdbc.Driver");
+			Class.forName("com.mysql.cj.jdbc.Driver");
 
 			// Provide the correct details: DBServer/DBName, username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf", "root", "admin");
@@ -49,9 +49,9 @@ public class Project {
 			// execute the statement
 			 preparedStmt.execute();
 			 con.close();
-			 String newItems = readProjects();
+			 String newprojects = readProjects();
 			 output = "{\"status\":\"success\", \"data\": \"" +
-			 newItems + "\"}";
+					 newprojects + "\"}";
 			 }
 			 catch (Exception e)
 			 {
