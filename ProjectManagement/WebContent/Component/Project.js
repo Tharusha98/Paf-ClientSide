@@ -1,7 +1,7 @@
 /**
  * 
  */
-var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
 
 
 
