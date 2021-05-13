@@ -136,7 +136,7 @@ public class Project {
 			 }
 			 catch (Exception e)
 			 {
-			 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			 output = "{\"status\":\"error\", \"data\":\"Error while updating the item.\"}";
 			 System.err.println(e.getMessage());
 			 }
 			 return output; 
@@ -164,7 +164,7 @@ public class Project {
 			 }
 			 catch (Exception e)
 			 {
-			 output = "{\"status\":\"error\", \"data\":\"Error while inserting the item.\"}";
+			 output = "{\"status\":\"error\", \"data\":\"Error while deleting the item.\"}";
 			 System.err.println(e.getMessage());
 			 }
 			 return output; 

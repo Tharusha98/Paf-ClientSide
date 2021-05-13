@@ -24,7 +24,7 @@ public class ProjectService {
 //------------------------------------------------------------------------------------------------------------------------
 	@GET
 	@Path("/view")
-	@RolesAllowed({"Funder", "Researcher"})
+	
 	@Produces(MediaType.TEXT_HTML)
 	public String readprojects() {
 		return itemObj.readProjects();
@@ -32,7 +32,7 @@ public class ProjectService {
 //------------------------------------------------------------------------------------------------------------------------
 	@POST
 	@Path("/insert")
-	@RolesAllowed({"Researcher"})
+
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String insertproject(@FormParam("Name") String name, @FormParam("Description") String description,
@@ -43,7 +43,7 @@ public class ProjectService {
 //------------------------------------------------------------------------------------------------------------------------
 	@PUT
 	@Path("/update")
-	@RolesAllowed({"Researcher"})
+	
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String updateprojects(String projectData) {
@@ -62,7 +62,7 @@ public class ProjectService {
 //------------------------------------------------------------------------------------------------------------------------
 	@DELETE
 	@Path("/delete")
-	@RolesAllowed({"Researcher"})
+	
 	@Consumes(MediaType.APPLICATION_XML)
 	@Produces(MediaType.TEXT_PLAIN)
 	public String deleteproject(String projectData) {
