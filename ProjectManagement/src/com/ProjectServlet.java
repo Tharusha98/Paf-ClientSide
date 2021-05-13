@@ -72,7 +72,9 @@ public class ProjectServlet extends HttpServlet {
 	 
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
+		
 		 String output =  projectobj.deleteProject(paras.get("Project_ID").toString());
+		 System.out.print("Project_ID");
 		response.getWriter().write(output);
 	}
 

@@ -24,7 +24,7 @@ public class ProjectService {
 //------------------------------------------------------------------------------------------------------------------------
 	@GET
 	@Path("/view")
-	
+
 	@Produces(MediaType.TEXT_HTML)
 	public String readprojects() {
 		return itemObj.readProjects();
