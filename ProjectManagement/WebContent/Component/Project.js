@@ -5,53 +5,6 @@
  */
 
 
-$(document).ready(function() {
-	$("#alertSuccess").hide();
-	$("#alertError").hide();
-});
-
-// UPDATE==========================================
-$(document).on(
-		"click",
-		".btnUpdate",
-		function(event) {
-			$("#hidProjectIDSave").val(
-					$(this).closest("tr").find('#hidIProjectIDUpdate').val());
-			$("#projectname").val($(this).closest("tr").find('td:eq(0)').text());
-			$("#description").val($(this).closest("tr").find('td:eq(1)').text());
-			$("#field").val($(this).closest("tr").find('td:eq(2)').text());
-			$("#url").val($(this).closest("tr").find('td:eq(3)').text());
-			$("#researcherid").val($(this).closest("tr").find('td:eq(3)').text());
-		});
-
-// CLIENT-MODEL================================================================
-function validateItemForm() {
-	// CODE
-	if ($("#projectname").val().trim() == "") {
-		return "Insert Item Code.";
-	}
-	// NAME
-	if ($("#description").val().trim() == "") {
-		return "Insert Item Name.";
-	}
-	// PRICE-------------------------------
-	if ($("#field").val().trim() == "") {
-		return "Insert Item Price.";
-	}
-	if ($("#url").val().trim() == "") {
-		return "Insert Item Price.";
-	}
-	// is numerical value
-	var tmpPrice = $("#researcherid").val().trim();
-	if (!$.isNumeric(tmpPrice)) {
-		return "Insert a numerical value for Item Price.";
-	}
-	
-	return true;
-}
-
-
-
 var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
 
 
@@ -73,7 +26,7 @@ $(document).on("click", "#btnSave", function(event)
 		 return;
 		 }
 		// If valid------------------------
-		var type = ($("#hidItemIDSave").val() == "") ? "POST" : "PUT";
+		var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
 		 $.ajax(
 		 {
 		 url : "Project",
@@ -119,12 +72,12 @@ if (status == "success")
 
 $(document).on("click", ".btnUpdate", function(event)
 		{
-		$("#hidItemIDSave").val($(this).data("itemid"));
-		 $("#projectname").val($(this).closest("tr").find('td:eq(0)').text());
-		 $("#description").val($(this).closest("tr").find('td:eq(1)').text());
-		 $("#field").val($(this).closest("tr").find('td:eq(2)').text());
-		 $("#url").val($(this).closest("tr").find('td:eq(3)').text());
-		 $("#researcherid").val($(this).closest("tr").find('td:eq(2)').text());
+		$("#hidprojectIDSave").val($(this).data("Project_ID"));
+		 $("#projectname").val($(this).closest("tr").find('td:eq(1)').text());
+		 $("#description").val($(this).closest("tr").find('td:eq(2)').text());
+		 $("#field").val($(this).closest("tr").find('td:eq(3)').text());
+		 $("#url").val($(this).closest("tr").find('td:eq(4)').text());
+		 $("#researcherid").val($(this).closest("tr").find('td:eq(5)').text());
 		});
 
 $(document).on("click", ".btnRemove", function(event)
