@@ -12,7 +12,7 @@ pageEncoding="ISO-8859-1"%>
 </head>
 <body>
 <div class="container"><div class="row"><div class="col-6">
-<h1>Project Management V10.1</h1>
+<h1>Project Management</h1>
 <form id="prjectform" name="projectform">
  <br>Project Name:
  <input id="projectname" name="projectname" type="text"
