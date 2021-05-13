@@ -13,7 +13,7 @@ pageEncoding="ISO-8859-1"%>
 <body>
 <div class="container"><div class="row"><div class="col-6">
 <h1>Project Management</h1>
-<form id="prjectform" name="projectform">
+<form id="projectform" name="projectform">
  <br>Project Name:
  <input id="projectname" name="projectname" type="text"
  class="form-control form-control-sm">
@@ -32,7 +32,7 @@ pageEncoding="ISO-8859-1"%>
  <br>
  <input id="btnSave" name="btnSave" type="button" value="Save"
  class="btn btn-primary">
- <input type="hidden" id="hidProjectIDSave"
+ <input type="hidden" id="hidIProjectIDSave"
  name="hidIProjectIDSave" value="">
 </form>
 <div id="alertSuccess" class="alert alert-success"></div>

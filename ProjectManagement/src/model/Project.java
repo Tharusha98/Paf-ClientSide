@@ -27,7 +27,7 @@ public class Project {
 
 	//Insert Project  to the sysytem and funding body can see those projects
 	
-	public String insertProject(String name, String description, String field,String url,int researcher_id) {
+	public String insertProject(String name, String description, String field,String url,String researcher_id) {
 		String output = "";
 		try {
 			Connection con = connect();
@@ -44,7 +44,7 @@ public class Project {
 			preparedStmt.setString(3, description);
 			preparedStmt.setString(4, field);
 			preparedStmt.setString(5, url);
-			preparedStmt.setInt(6, researcher_id);
+			preparedStmt.setString(6, researcher_id);
 			
 			// execute the statement
 			 preparedStmt.execute();
@@ -95,9 +95,9 @@ public class Project {
 				// buttons
 				output +=
 						"<td><input name='btnUpdate' type='button' value='Update' "
-								+ "class='btnUpdate btn btn-secondary' data-itemid='" + projectID + "'></td>"
+								+ "class='btnUpdate btn btn-secondary' data-Project_ID='" + projectID + "'></td>"
 								+ "<td><input name='btnRemove' type='button' value='Remove' "
-								+ "class='btnRemove btn btn-danger' data-itemid='" + projectID + "'></td></tr>";}
+								+ "class='btnRemove btn btn-danger' data-Project_ID='" + projectID + "'></td></tr>";}
 			con.close();
 			// Complete the html table
 			output += "</table>";

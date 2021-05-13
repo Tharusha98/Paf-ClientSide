@@ -22,7 +22,7 @@ import java.util.Scanner;
 public class ProjectServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
-	Project projectobj = new Project();
+	Project projectObj = new Project();
 
     /**
      * Default constructor. 
@@ -43,11 +43,11 @@ public class ProjectServlet extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String output =  projectobj.insertProject(request.getParameter("projectname"),
+		String output =   projectObj.insertProject(request.getParameter("projectname"),
 				 request.getParameter("description"),
 				 request.getParameter("field"),
 				 request.getParameter("url"),
-				Integer.parseInt(request.getParameter("researcherid")));
+				request.getParameter("researcherid"));
 				response.getWriter().write(output);
 	}
 
@@ -57,7 +57,7 @@ public class ProjectServlet extends HttpServlet {
 	protected void doPut(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
 		
-		 String output = projectobj.updateProject(paras.get("hidProjectIDSave").toString(),
+		String output = projectObj.updateProject(paras.get("hidIProjectIDSave").toString(),
 			
 		 paras.get("projectname").toString(),
 		 paras.get("description").toString(),
@@ -73,8 +73,8 @@ public class ProjectServlet extends HttpServlet {
 	protected void doDelete(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		Map paras = getParasMap(request);
 		
-		 String output =  projectobj.deleteProject(paras.get("Project_ID").toString());
-		 System.out.print("Project_ID");
+		 String output =   projectObj.deleteProject(paras.get("Project_ID").toString());
+		
 		response.getWriter().write(output);
 	}
 

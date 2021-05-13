@@ -5,11 +5,6 @@
  */
 
 
-var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
-
-
-
-
 $(document).on("click", "#btnSave", function(event)
 		{
 		// Clear alerts---------------------
@@ -17,8 +12,11 @@ $(document).on("click", "#btnSave", function(event)
 		 $("#alertSuccess").hide();
 		 $("#alertError").text("");
 		 $("#alertError").hide();
+		 
 		// Form validation-------------------
-		var status = validateItemForm();
+//		var status = validateItemForm();
+		 var status =true;
+		 
 		if (status != true)
 		 {
 		 $("#alertError").text(status);
@@ -26,7 +24,7 @@ $(document).on("click", "#btnSave", function(event)
 		 return;
 		 }
 		// If valid------------------------
-		var type = ($("#hidprojectIDSave").val() == "") ? "POST" : "PUT";
+		var type = ($("#hidIProjectIDSave").val() == "") ? "POST" : "PUT";
 		 $.ajax(
 		 {
 		 url : "Project",
@@ -64,7 +62,7 @@ if (status == "success")
  $("#alertError").text("Unknown error while saving..");
  $("#alertError").show();
  }
-  $("#hidProjectIDSave").val("");
+  $("#hidIProjectIDSave").val("");
   $("#projectform")[0].reset(); 
 
 
@@ -72,7 +70,7 @@ if (status == "success")
 
 $(document).on("click", ".btnUpdate", function(event)
 		{
-		$("#hidprojectIDSave").val($(this).data("Project_ID"));
+		$("#hidIProjectIDSave").val($(this).data("project_id"));
 		 $("#projectname").val($(this).closest("tr").find('td:eq(1)').text());
 		 $("#description").val($(this).closest("tr").find('td:eq(2)').text());
 		 $("#field").val($(this).closest("tr").find('td:eq(3)').text());
@@ -86,7 +84,7 @@ $(document).on("click", ".btnRemove", function(event)
 		 {
 		 url : "Project",
 		 type : "DELETE",
-		 data : "Project_ID=" + $(this).data("Project_ID"),
+		 data : "Project_ID=" + $(this).data("project_id"),
 		 dataType : "text",
 		 complete : function(response, status)
 		 {
