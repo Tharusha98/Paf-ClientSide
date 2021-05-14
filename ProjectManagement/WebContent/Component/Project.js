@@ -1,9 +1,7 @@
-/**
+/* 
+ * @author  IT19160580 Maddumage T.A.R
  * 
- * 
- * 
- */
-
+ * */
 //for save button
 $(document).on("click", "#btnSave", function(event)
 		{
